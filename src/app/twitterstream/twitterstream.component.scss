@@ -1,0 +1,63 @@
+@import '../../variables.scss';
+
+.tweets {
+  list-style: none;
+  column-count: 4;
+  padding: 0;
+  margin:0;
+
+  li {
+    background: $white;
+    color: $base;
+    margin: 15px 0;
+    display: inline-block;
+    padding: 15px;
+    width: calc( 100% - 40px );
+
+    a {
+      text-decoration: none;
+      color: $highlight-dark;
+
+      .username {
+        color: $highlight-dark;
+      }
+    }
+
+    .tweet {
+      .tweet-text {
+        padding-bottom: 8px;
+        border-bottom: 1px solid $gray-lighter;
+        margin-bottom: 8px;
+        display: block;
+
+        > span {
+          color: $highlight;
+        }
+      }
+
+      .profile-img {
+        float: left;
+        margin-right: 8px;
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .profile-information {
+        padding-top: 8px;
+
+        display: block;
+
+        .profile-name {
+          display: block;
+          color: $highlight;
+        }
+
+        .profile-location {
+          color: $gray;
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
