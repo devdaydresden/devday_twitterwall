@@ -1,8 +1,12 @@
-FROM node:16.15
+FROM node:16.15 AS builder
 
 ADD . /app
-RUN cd /app ; npm install ng ; npm run build-prod
+RUN cd /app ; npm install ng ; npm run build --prod
+
+FROM busybox:stable
+
+COPY --from=builder /app/dist/twitterwall /twitterwall/
 
 VOLUME /target
 
-CMD tar c -C /app/dist/twitterwall . | tar x -C /target
+ENTRYPOINT ["/bin/sh", "-c", "tar c -C /twitterwall . | tar xv -C /target"]
