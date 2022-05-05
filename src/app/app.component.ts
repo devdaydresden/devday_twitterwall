@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Tweet } from './components/tweet/tweet.component';
+import { TweetService } from './services/tweet.service';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'DevDay Twitterwall';
-  private content: string;
-  public query: string;
-
-  public constructor() {
-
-  }
-
+  title = 'twitterwall';
 }

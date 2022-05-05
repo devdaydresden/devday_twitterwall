@@ -1,0 +1,13 @@
+<span class="tweet" id="{{data.id}}"  [@enterAnimation]>
+  <span class="tweet-text" [innerHTML]="data.text | highlight : '#devdaydd':'#devdaydd' | dehighlight : 'RT':'RT' "></span>
+  <div class="tweet-user">
+    <span class="profile-img">
+      <img src="{{data.profileImage}}" />
+    </span>
+    <span class="details">
+      <span class="profile-name">@{{data.screenName}}</span>
+      <span class="profile-location">{{data.location}}</span>
+      <div class="time">{{data.time | date:'shortTime'  }}</div>
+    </span>
+  </div>
+</span>

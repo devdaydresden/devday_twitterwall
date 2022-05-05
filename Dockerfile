@@ -1,4 +1,4 @@
-FROM node:10.15
+FROM node:16.15
 
 ADD . /app
 RUN cd /app ; npm install ng ; npm run build-prod

@@ -1,0 +1,5 @@
+<div class="tweets">
+  <ng-container *ngIf="tweets$ | async as data">
+    <app-tweet *ngFor="let tweet of data; trackBy:trackByItems" [data]="tweet"></app-tweet>
+  </ng-container>
+</div>
