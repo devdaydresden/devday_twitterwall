@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.tweets {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  grid-template-rows: masonry;
+  padding: 24px
+}
+
+@media screen and (max-width: 1024px) {
+  .tweets {
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .tweets {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}

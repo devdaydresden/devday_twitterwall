@@ -1,26 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient,  HttpHeaders }    from '@angular/common/http';
-import { Tweet } from '../class/tweet';
-import { DATA } from '../mocks/tweets.mock';
-import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { map, Observable, of, Subject, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Tweet } from '../components/tweet/tweet.component';
 
+interface ApiTweet {
+  id: number,
+  location: string,
+  profileImage: string,
+  screenName: string,
+  text: string,
+  time: string
+}
 
+interface ApiTweets {
+  tweets: ApiTweet[];
+}
 @Injectable({
   providedIn: 'root'
 })
-export class TweetsService {
-
+export class TweetService {
   private apiURL: string;
-  private searchString: string;
-  private consumerKey: string;
-  private consumerSecret: string;
-  private accessToken: string;
-  private tokenSecret: string;
-  private authHeader: string;
   private httpOptions : any;
-
   constructor(private httpClient: HttpClient) {
     this.apiURL = environment.apiURL;
     this.httpOptions = {
@@ -32,7 +33,6 @@ export class TweetsService {
   }
 
   public getTweetsAPI() : Observable<Tweet[]> {
-    console.log('api call')
     return this.httpClient.get<Tweet[]>(this.apiURL, this.httpOptions).pipe(
       map(
         (
@@ -40,7 +40,8 @@ export class TweetsService {
         ) => {
           return result.tweets;
         }
-      )
+      ),
+      map(tweets => tweets.filter((r: Tweet) => r.text.indexOf('RT') == -1))
     )
   }
 

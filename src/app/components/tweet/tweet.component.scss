@@ -1,0 +1,66 @@
+@import '../../variables.scss';
+
+:host {
+  display: flex;
+
+  .tweet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: white;
+
+    color: $base;
+
+    border-radius: 4px;
+
+    .tweet-text {
+      display: block;
+
+      margin-bottom: 8px;
+
+      > span {
+        color: $highlight;
+      }
+    }
+
+    .tweet-user {
+      display: flex;
+      align-items: center;
+
+      border-top: 1px solid $gray-lighter;
+      padding-top: 8px;
+
+      .profile-img {
+        margin-right: 8px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .details {
+
+        .profile-name {
+          color: $highlight;
+        }
+
+        .profile-location {
+          color: $gray;
+
+          font-size: 0.75rem;
+        }
+
+        .time {
+          font-size: 10px;
+          margin-top: 4px;
+        }
+      }
+    }
+
+  }
+}
