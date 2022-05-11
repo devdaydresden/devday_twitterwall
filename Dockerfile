@@ -1,7 +1,7 @@
 FROM node:16.15 AS builder
 
 ADD . /app
-RUN cd /app ; npm install ng ; npm run build --prod
+RUN cd /app ; npm install ng ; npm run prod-build
 
 FROM busybox:stable
 
