@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --ssl",
     "build": "ng build",
+    "prod-build": "ng build --prod --base-href=/app-twitterwall/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
